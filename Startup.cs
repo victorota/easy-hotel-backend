@@ -15,6 +15,9 @@ using easy_hotel_backend.Repositorio;
 using MySql.Data.EntityFrameworkCore.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace easy_hotel_backend
 {
@@ -33,8 +36,38 @@ namespace easy_hotel_backend
             services.AddDbContext<ApiDbContext>(Options => Options.UseMySQL("server=127.0.0.1;uid=root;pwd=1234567;database=easyhotel"));
             services.AddTransient<IHotelRepository, HotelRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-            services.AddMvc();
             services.AddCors();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "easy-hotel",
+                    ValidAudience = "easy-hotel",
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(Configuration["SecurityKey"])
+                    )
+                };
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine("Token invalido...:." + context.Exception.Message);
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("Token Valido...:." + context.SecurityToken);
+                        return Task.CompletedTask;
+                    }
+                };
+            });
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

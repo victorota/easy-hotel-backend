@@ -8,7 +8,6 @@ namespace easy_hotel_backend
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
         }
-
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
     }
