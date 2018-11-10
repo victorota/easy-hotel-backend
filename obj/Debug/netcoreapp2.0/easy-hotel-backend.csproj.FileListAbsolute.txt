@@ -1,0 +1,11 @@
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\bin\Debug\netcoreapp2.0\easy-hotel-backend.deps.json
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\bin\Debug\netcoreapp2.0\easy-hotel-backend.runtimeconfig.json
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\bin\Debug\netcoreapp2.0\easy-hotel-backend.runtimeconfig.dev.json
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\bin\Debug\netcoreapp2.0\easy-hotel-backend.dll
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\bin\Debug\netcoreapp2.0\easy-hotel-backend.pdb
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.csproj.CoreCompileInputs.cache
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.AssemblyInfoInputs.cache
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.AssemblyInfo.cs
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.dll
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.pdb
+C:\Users\marcelo\Desktop\Projetos\easy-hotel-backend\obj\Debug\netcoreapp2.0\easy-hotel-backend.csprojResolveAssemblyReference.cache
