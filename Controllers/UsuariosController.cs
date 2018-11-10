@@ -9,7 +9,7 @@ namespace easy_hotel_backend.Controllers
     [Route("api/[Controller]")]
     public class UsuariosController : Controller
     {
-        private UsuarioDbContext _usuarioDbContext;
+        private ApiDbContext _usuarioDbContext;
         private readonly IUsuarioRepository _usuarioRepositorio;
 
         public UsuariosController(IUsuarioRepository usuarioRepo)
@@ -34,5 +34,46 @@ namespace easy_hotel_backend.Controllers
             return new ObjectResult(usuario);
         }
 
+        [HttpPost]
+        public IActionResult Crate([FromBody] Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                return BadRequest();
+            }
+            _usuarioRepositorio.Add(usuario);
+            return CreatedAtRoute("GetUsuario", new { id = usuario.UsuarioId }, usuario);
+        }
+
+        [HttpPut]
+        public IActionResult Update(long id, [FromBody] Usuario usuario)
+        {
+            if (usuario == null || usuario.UsuarioId != id)
+            {
+                return BadRequest();
+            }
+            var _usuario = _usuarioRepositorio.Find(id);
+            if (_usuario == null)
+            {
+                return NotFound();
+            }
+            _usuario.Email = usuario.Email;
+            _usuario.Nome = usuario.Nome;
+
+            _usuarioRepositorio.Update(_usuario);
+            return new NoContentResult();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var usuario = _usuarioRepositorio.Find(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+            _usuarioRepositorio.Remove(id);
+            return new ContentResult();
+        }
     }
 }

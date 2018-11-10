@@ -30,7 +30,8 @@ namespace easy_hotel_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<HotelDbContext>(Options => Options.UseMySQL("server=127.0.0.1;uid=root;pwd=1234567;database=easyhotel"));
+            services.AddDbContext<ApiDbContext>(Options => Options.UseMySQL("server=127.0.0.1;uid=root;pwd=1234567;database=easyhotel"));
+            services.AddTransient<IHotelRepository, HotelRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddMvc();
             services.AddCors();

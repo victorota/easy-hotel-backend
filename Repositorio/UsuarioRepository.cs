@@ -6,8 +6,8 @@ namespace easy_hotel_backend.Repositorio
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly UsuarioDbContext _contexto;
-        public UsuarioRepository(UsuarioDbContext ctx)
+        private readonly ApiDbContext _contexto;
+        public UsuarioRepository(ApiDbContext ctx)
         {
             _contexto = ctx;
         }
