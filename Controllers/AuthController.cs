@@ -3,12 +3,17 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace easy_hotel_backend.Controllers
 {
+    [EnableCors("*")]
+
+    // [EnableCors(origin:"*", "*", "*")]
+    // [AllowAnonymous]
     [Route("api/[controller]")]
     public class AuthController : Controller
     {
@@ -21,7 +26,7 @@ namespace easy_hotel_backend.Controllers
         [HttpPost]
         public IActionResult Auth([FromBody] Usuario request)
         {
-            if (request.Nome == "teste" && request.Senha == "123456")
+            if (request.Nome == "admin" && request.Senha == "123456")
             {
                 var claims = new[]
                 {

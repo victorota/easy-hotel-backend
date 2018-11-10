@@ -36,6 +36,8 @@ namespace easy_hotel_backend
             services.AddDbContext<ApiDbContext>(Options => Options.UseMySQL("server=127.0.0.1;uid=root;pwd=1234567;database=easyhotel"));
             services.AddTransient<IHotelRepository, HotelRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IReservaRepository, ReservaRepository>();
+
             services.AddCors();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -78,6 +80,7 @@ namespace easy_hotel_backend
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(option => option.AllowAnyOrigin());
+            // app.UseAuthentication();
             app.UseMvc();
         }
     }

@@ -11,6 +11,6 @@ namespace easy_hotel_backend.Models
         public int QuartoId { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
-
+        public double Valor { get; set; }
     }
 }
