@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using easy_hotel_backend.Models;
@@ -40,6 +41,13 @@ namespace easy_hotel_backend.Repositorio
         {
             _contexto.Reserva.Update(reserva);
             _contexto.SaveChanges();
+        }
+
+        Boolean IReservaRepository.Disponivel(Reserva reserva)
+        {
+            var reservas = _contexto.Reserva.Where(r => r.QuartoId == reserva.QuartoId).ToList();
+            var disponivel = reservas.Any(r => (r.DataFim >= reserva.DataInicio && r.DataInicio <= reserva.DataInicio) || (r.DataFim <= reserva.DataFim && r.DataInicio <= reserva.DataFim));
+            return !disponivel;
         }
     }
 }

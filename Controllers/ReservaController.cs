@@ -33,6 +33,16 @@ namespace easy_hotel_backend.Controllers
             }
             return new ObjectResult(reserva);
         }
+        [HttpPost]
+        public IActionResult Crate([FromBody] Reserva reserva)
+        {
+            if (reserva == null || !_reservaRepositorio.Disponivel(reserva))
+            {
+                return BadRequest();
+            }
+            _reservaRepositorio.Add(reserva);
+            return CreatedAtRoute("GetReserva", new { id = reserva.ReservaId }, reserva);
+        }
 
     }
 }
