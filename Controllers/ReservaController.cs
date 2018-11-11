@@ -31,7 +31,6 @@ namespace easy_hotel_backend.Controllers
             {
                 return NotFound();
             }
-            reserva.quarto = _quartoRepositorio.Find(reserva.QuartoId);
             return new ObjectResult(reserva);
         }
 

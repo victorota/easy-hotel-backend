@@ -9,5 +9,7 @@ namespace easy_hotel_backend.Models
         public string AvaliacaoQuarto { get; set; }
         public double Valor { get; set; }
         public Imagem[] Imagens { get; set; }
+        public Hotel Hotel { get; set; }
+
     }
 }

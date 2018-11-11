@@ -19,7 +19,9 @@ namespace easy_hotel_backend.Repositorio
 
         Reserva IReservaRepository.Find(long id)
         {
-            return _contexto.Reserva.FirstOrDefault(r => r.ReservaId == id);
+            var reserva = _contexto.Reserva.FirstOrDefault(r => r.ReservaId == id);
+            reserva.quarto = _contexto.Quarto.Find(reserva.QuartoId);
+            return reserva;
         }
 
         IEnumerable<Reserva> IReservaRepository.GetAll()
