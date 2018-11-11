@@ -10,10 +10,12 @@ namespace easy_hotel_backend.Controllers
     {
         private ApiDbContext _reservaDbContext;
         private readonly IReservaRepository _reservaRepositorio;
+        private readonly IQuartoRepository _quartoRepositorio;
 
-        public ReservaController(IReservaRepository reservaRepo)
+        public ReservaController(IReservaRepository reservaRepo, IQuartoRepository quartoRepo)
         {
             _reservaRepositorio = reservaRepo;
+            _quartoRepositorio = quartoRepo;
         }
 
         [HttpGet]
@@ -29,6 +31,7 @@ namespace easy_hotel_backend.Controllers
             {
                 return NotFound();
             }
+            reserva.quarto = _quartoRepositorio.Find(reserva.QuartoId);
             return new ObjectResult(reserva);
         }
 

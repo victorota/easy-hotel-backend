@@ -37,6 +37,7 @@ namespace easy_hotel_backend
             services.AddTransient<IHotelRepository, HotelRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IReservaRepository, ReservaRepository>();
+            services.AddTransient<IQuartoRepository, QuartoRepository>();
 
             services.AddCors();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
