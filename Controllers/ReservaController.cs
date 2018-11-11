@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using easy_hotel_backend.Models;
 using easy_hotel_backend.Repositorio;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace easy_hotel_backend.Controllers
 {
@@ -19,9 +22,12 @@ namespace easy_hotel_backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Reserva> GetAll()
+        public IPagedList GetAll(int? pagina)
         {
-            return _reservaRepositorio.GetAll();
+            IQueryable<Reserva> reservas = _reservaRepositorio.GetAll();
+            var numeroPagina = pagina ?? 1;
+            var reservasPaginado = reservas.ToPagedList(numeroPagina, 20);
+            return reservasPaginado;
         }
         [HttpGet("{id}", Name = "GetReserva")]
         public IActionResult getById(long id)

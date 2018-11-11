@@ -25,9 +25,12 @@ namespace easy_hotel_backend.Repositorio
             return reserva;
         }
 
-        IEnumerable<Reserva> IReservaRepository.GetAll()
+        IQueryable<Reserva> IReservaRepository.GetAll()
         {
-            return _contexto.Reserva.ToList();
+            var reservas = _contexto.Reserva.GroupJoin(_contexto.Quarto.ToList(),
+             r => r.QuartoId, q => q.QuartoId, (reserva, quarto) => reserva)
+             .GroupJoin(_contexto.Hotels.ToList(), r => r.quarto.HotelId, h => h.HotelId, (reserva, hotel) => reserva);
+            return reservas;
         }
 
         void IReservaRepository.Remove(long id)

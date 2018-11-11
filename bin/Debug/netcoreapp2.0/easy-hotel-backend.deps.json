@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "81cd545f0fe3817713e02ba65d6dace27bc10042"
+    "signature": "db8b17933bc741c435e60261b3ac3bbe372cfed9"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,9 @@
           "Microsoft.AspNetCore.All": "2.0.6",
           "Microsoft.NETCore.App": "2.0.0",
           "MySql.Data.EntityFrameworkCore": "8.0.13",
-          "System.IdentityModel.Tokens.Jwt": "5.3.0"
+          "System.IdentityModel.Tokens.Jwt": "5.3.0",
+          "X.PagedList": "7.6.0",
+          "X.PagedList.Mvc": "7.6.0"
         },
         "runtime": {
           "easy-hotel-backend.dll": {}
@@ -2434,7 +2436,7 @@
           "System.Diagnostics.Debug": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Linq.Expressions": "4.3.0",
-          "System.Linq.Queryable": "4.0.1",
+          "System.Linq.Queryable": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -3075,7 +3077,7 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.Linq.Queryable/4.0.1": {
+      "System.Linq.Queryable/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
@@ -3929,6 +3931,26 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        }
+      },
+      "X.PagedList/7.6.0": {
+        "dependencies": {
+          "System.Linq.Expressions": "4.3.0",
+          "System.Linq.Queryable": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc/7.6.0": {
+        "runtime": {
+          "lib/net461/X.PagedList.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/net461/X.PagedList.Mvc.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.0.0": {
@@ -5737,12 +5759,12 @@
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
-    "System.Linq.Queryable/4.0.1": {
+    "System.Linq.Queryable/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
-      "path": "system.linq.queryable/4.0.1",
-      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+      "sha512": "sha512-XeuhzDnMp4nqUkeW4c5ILsKQk4+15RVaHm8LQdKWiGqIAgC12y2vuJUkkNhqjqi3K6LNmV9tzEfAZrarwWMsKA==",
+      "path": "system.linq.queryable/4.3.0",
+      "hashPath": "system.linq.queryable.4.3.0.nupkg.sha512"
     },
     "System.Memory/4.5.1": {
       "type": "package",
@@ -6191,6 +6213,20 @@
       "sha512": "sha512-W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
+    },
+    "X.PagedList/7.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JZiNGeQKLQl6MgJynKK4UTtrwQLpQtRO7VSkdlv1x3P4hMu7UWdgGwqZCT7ddqbJdjjUvdsm4R6kpnUTWZ5ogw==",
+      "path": "x.pagedlist/7.6.0",
+      "hashPath": "x.pagedlist.7.6.0.nupkg.sha512"
+    },
+    "X.PagedList.Mvc/7.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yt9+Y6CAXYEfulrzN1nE4MMJz/yXacd/Ek1J+2KV+kyhYijfWjLK8Dt8MptMyufKawTXZmK4N0mZOgX5sKtGuw==",
+      "path": "x.pagedlist.mvc/7.6.0",
+      "hashPath": "x.pagedlist.mvc.7.6.0.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.0.0": {
       "type": "package",
