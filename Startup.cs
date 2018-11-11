@@ -80,7 +80,7 @@ namespace easy_hotel_backend
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(option => option.AllowAnyOrigin());
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             // app.UseAuthentication();
             app.UseMvc();
         }

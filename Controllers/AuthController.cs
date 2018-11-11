@@ -10,10 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace easy_hotel_backend.Controllers
 {
-    [EnableCors("*")]
 
-    // [EnableCors(origin:"*", "*", "*")]
-    // [AllowAnonymous]
     [Route("api/[controller]")]
     public class AuthController : Controller
     {
@@ -22,7 +19,6 @@ namespace easy_hotel_backend.Controllers
         {
             _configuration = configuration;
         }
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult Auth([FromBody] Usuario request)
         {
@@ -45,7 +41,7 @@ namespace easy_hotel_backend.Controllers
                     signingCredentials: creds
                 );
 
-                return Ok(new { toke = new JwtSecurityTokenHandler().WriteToken(token) });
+                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
 
             }
             else

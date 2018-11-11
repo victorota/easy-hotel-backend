@@ -43,6 +43,17 @@ namespace easy_hotel_backend.Controllers
             _reservaRepositorio.Add(reserva);
             return CreatedAtRoute("GetReserva", new { id = reserva.ReservaId }, reserva);
         }
+        [HttpDelete("{id}")]
+        public IActionResult remove(long id)
+        {
+            var reserva = _reservaRepositorio.Find(id);
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+            _reservaRepositorio.Remove(id);
+            return new ContentResult();
+        }
 
     }
 }
